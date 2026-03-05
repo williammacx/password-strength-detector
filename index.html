@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Password Strength Detector</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="header">
+      <h1>🔒 Password Strength Detector</h1>
+      <p class="sub">Checks length, variety, patterns, and common weaknesses — locally in your browser.</p>
+    </header>
+
+    <section class="card">
+      <label class="label" for="pw">Password</label>
+
+      <div class="pwrow">
+        <input id="pw" class="input" type="password" autocomplete="new-password" placeholder="Type a password…" />
+        <button id="toggle" class="btn" type="button" aria-label="Show password">Show</button>
+      </div>
+
+      <div class="meter" aria-hidden="true">
+        <div id="bar" class="bar"></div>
+      </div>
+
+      <div class="row">
+        <div>
+          <div class="scoreline">
+            <span class="pill" id="label">—</span>
+            <span class="muted" id="scoreText">Score: 0/100</span>
+          </div>
+          <div class="muted small" id="entropyText">Estimated entropy: —</div>
+        </div>
+        <div class="right">
+          <button id="gen" class="btn btn-secondary" type="button">Generate strong</button>
+          <button id="copy" class="btn btn-secondary" type="button">Copy</button>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <h2 class="h2">Checklist</h2>
+      <ul class="checks" id="checks">
+        <!-- populated by JS -->
+      </ul>
+
+      <h2 class="h2">Suggestions</h2>
+      <ul class="tips" id="tips">
+        <!-- populated by JS -->
+      </ul>
+
+      <p class="foot muted small">
+        Tip: For real-world auth, always use server-side validation and store passwords using a modern KDF (Argon2id / scrypt / bcrypt).
+      </p>
+    </section>
+
+    <footer class="footer muted small">
+      Deployed with GitHub Pages • No data leaves your device
+    </footer>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
